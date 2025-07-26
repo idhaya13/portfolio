@@ -1,4 +1,5 @@
 import portprojbg from "../assets/portfolioproj.jpg";
+import pagebg from "../assets/reactprojbg.jpeg";
 
 const projects = [
   {
@@ -6,6 +7,12 @@ const projects = [
     description: "My personal portfolio using Vite React and Tailwind.",
     image: portprojbg, 
     link: "#",
+  },
+    {
+    title: "Vite Reactpages templates",
+    description: "reactjs pages for quick use using Vite React and Tailwind.",
+    image: pagebg, 
+    link: "https://github.com/idhaya13/vitereacttemplates",
   },
 ];
 
