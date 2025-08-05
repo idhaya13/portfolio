@@ -9,10 +9,8 @@ import Skills from "./components/Skills";
 function App() {
   return (
     <div className="scroll-smooth overflow-y-auto">
-      {/* Fixed Navbar on top */}
       <Navbar />
 
-      {/* Regular stacked scroll sections */}
       <section id="hero" className="min-h-screen">
         <Hero />
       </section>
@@ -20,7 +18,9 @@ function App() {
       <section id="about" className="min-h-screen">
         <About />
       </section>
-       <section id="skills" className="min-h-screen">
+      
+      {/* Remove min-h-screen from skills section */}
+      <section id="skills">
         <Skills />
       </section>
 
@@ -31,7 +31,6 @@ function App() {
       <section id="contact" className="min-h-screen">
         <Contact />
       </section>
-     
     </div>
   );
 }

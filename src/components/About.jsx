@@ -6,7 +6,7 @@ const About = () => {
   useEffect(() => {
     const link = document.createElement("link");
     link.href =
-      "https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap";
+      "https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" ;
     link.rel = "stylesheet";
     document.head.appendChild(link);
   }, []);
@@ -39,14 +39,15 @@ const About = () => {
       <div className="absolute top-[30%] left-8 right-8 md:left-[10%] md:right-[10%] z-10 flex flex-col md:flex-row items-center gap-6">
         {/* Text */}
         <div className="max-w-3xl">
-          <p
-            className="text-lg md:text-3xl leading-relaxed"
+          <p  
+            className="text-lg md:text-3xl leading-relaxed text-justify"
             style={{
-              fontFamily: "'Shadows Into Light', cursive",
+              fontFamily: "Slabo 27px",
+              wordSpacing: "-3px",
             }}
           >
-            I'm an aspiring full-stack developer who has worked in Python, Django, and React.
-            I enjoy building practical tools—like user dashboards and AI-integrated apps—and I strive for clean UI and optimal performance.
+            I am an aspiring full-stack developer who has worked in Python, Django, and React.
+            I enjoy building practical tools like user dashboards and AI-integrated apps and I strive for clean UI and optimal performance.
             I’m currently leveling up my DSA skills. I believe in learning by doing and pushing each project one step further.
           </p>
         </div>
