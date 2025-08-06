@@ -8,7 +8,7 @@ import Skills from "./components/Skills";
 
 function App() {
   return (
-    <div className="scroll-smooth overflow-y-auto">
+    <div className="scroll-smooth overflow-x-hidden overflow-y-auto">
       <Navbar />
 
       <section id="hero" className="min-h-screen">
@@ -18,9 +18,8 @@ function App() {
       <section id="about" className="min-h-screen">
         <About />
       </section>
-      
-      {/* Remove min-h-screen from skills section */}
-      <section id="skills">
+
+      <section id="skills" className="min-h-screen">
         <Skills />
       </section>
 

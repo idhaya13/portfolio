@@ -26,6 +26,14 @@ const Navbar = () => {
           </li>
           <li>
             <a
+              href="#skills"
+              className="hover:text-indigo-300 transition-colors duration-200"
+            >
+              Skills
+            </a>
+          </li>
+          <li>
+            <a
               href="#projects"
               className="hover:text-indigo-300 transition-colors duration-200"
             >
@@ -47,4 +55,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

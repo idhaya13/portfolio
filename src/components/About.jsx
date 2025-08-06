@@ -1,5 +1,5 @@
 import aboutbg from "../assets/aboutbg.mp4";
-import codingmeme from "../assets/codingmeme.png";
+// import codingmeme from "../assets/codingmeme.png";
 import { useEffect } from "react";
 
 const About = () => {
@@ -36,9 +36,9 @@ const About = () => {
       </div>
 
       {/* About Section with Image */}
-      <div className="absolute top-[30%] left-8 right-8 md:left-[10%] md:right-[10%] z-10 flex flex-col md:flex-row items-center gap-6">
+      <div className="absolute top-[30%] left-10 right-8 md:left-[25%]  ">
         {/* Text */}
-        <div className="max-w-3xl">
+        <div className="max-w-3xl ">
           <p  
             className="text-lg md:text-3xl leading-relaxed text-justify"
             style={{
@@ -46,18 +46,16 @@ const About = () => {
               wordSpacing: "-3px",
             }}
           >
-            I am an aspiring full-stack developer who has worked in Python, Django, and React.
-            I enjoy building practical tools like user dashboards and AI-integrated apps and I strive for clean UI and optimal performance.
-            I’m currently leveling up my DSA skills. I believe in learning by doing and pushing each project one step further.
+           I'm an aspiring full-stack developer with experience in Python, Django, and React. I enjoy crafting practical tools like user dashboards and AI-integrated applications, always striving for clean UI and optimal performance. I'm currently leveling up my Data Structures and Algorithms (DSA) skills and believe in learning by doing—pushing every project a step further.
           </p>
         </div>
 
         {/* Meme Image */}
-        <img
+        {/* <img
           src={codingmeme}
           alt="Coding Meme"
           className="w-10 md:w-80 lg:w-80 rounded-md shadow-lg opacity-90 ml-10"
-        />
+        /> */}
       </div>
 
       {/* Masked Text Animation */}
