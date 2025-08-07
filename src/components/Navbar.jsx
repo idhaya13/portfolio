@@ -4,9 +4,9 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black/10 backdrop-md shadow-md text-white">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold tracking-wide">
+        <a href="#hero" className="text-xl font-bold tracking-wide hover:text-indigo-300 transition-colors duration-200">
           Maria Idhaya Infancia
-        </h1>
+        </a>
         <ul className="hidden md:flex space-x-8 font-semibold text-base">
           <li>
             <a
@@ -55,3 +55,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

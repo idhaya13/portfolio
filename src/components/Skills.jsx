@@ -1,8 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const ScrollZoom3D = ({ items = [] }) => {
   const containerRef = useRef(null);
   const scrollContainerRef = useRef(null);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  // 🟢 Timeout to hide scroll prompt automatically
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHasScrolled(true);
+    }, 4000); // 4 seconds delay
+
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     let autoScrollTimeout = null;
@@ -16,14 +26,15 @@ const ScrollZoom3D = ({ items = [] }) => {
       const scrollHeight = scrollContainer.scrollHeight - scrollContainer.clientHeight;
       const scrollPercentage = Math.min(Math.max(scrollTop / scrollHeight, 0), 1);
 
-      // Auto scroll back to top when nearing the end
+      // 🟢 Set hasScrolled if user actually scrolls
+      if (!hasScrolled && scrollTop > 5) {
+        setHasScrolled(true);
+      }
+
       if (scrollPercentage >= 0.98) {
         clearTimeout(autoScrollTimeout);
         autoScrollTimeout = setTimeout(() => {
-          scrollContainer.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-          });
+          scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
         }, 500);
       }
 
@@ -76,13 +87,13 @@ const ScrollZoom3D = ({ items = [] }) => {
 
     const scrollContainer = scrollContainerRef.current;
     scrollContainer?.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial run
+    handleScroll();
 
     return () => {
       scrollContainer?.removeEventListener('scroll', handleScroll);
       clearTimeout(autoScrollTimeout);
     };
-  }, []);
+  }, [hasScrolled]);
 
   const defaultItems = [
     'React', 'Python', 'Django', 'JavaScript', 'Node.js', 'MongoDB',
@@ -93,10 +104,22 @@ const ScrollZoom3D = ({ items = [] }) => {
   const gridItems = items.length > 0 ? items : defaultItems;
 
   return (
-    <div className="w-full h-screen bg-gradient-to-b from-gray-950 to-black">
+    <div className="w-full h-screen bg-gradient-to-b from-gray-950 to-black relative">
+      {!hasScrolled && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-30 pointer-events-none">
+          {/* Scroll Prompt Text */}
+          <div className="text-2xl mb-6 animate-pulse">Scroll to explore</div>
+
+          {/* Scroll Mouse Indicator */}
+          <div className="w-8 h-14 rounded-full border-2 border-white relative flex items-start justify-center">
+            <div className="w-1.5 h-1.5 bg-white rounded-full absolute top-2 animate-scroll-dot" />
+          </div>
+        </div>
+      )}
+
       <section
         ref={scrollContainerRef}
-        className="h-screen overflow-y-scroll"
+        className="h-screen overflow-y-scroll custom-scrollbar"
         style={{ scrollBehavior: 'smooth' }}
       >
         <div className="relative" style={{ height: '300vh' }}>
