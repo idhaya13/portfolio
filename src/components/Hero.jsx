@@ -51,7 +51,7 @@ const Hero = () => {
           transition={{ delay: 1.4, duration: 1 }}
         >
           A fresher passionate about building clean and responsive web applications.
-          I love turning ideas into real-world interactive websites using React, Node, and more.
+          I love turning ideas into real-world interactive websites using React and more.
         </motion.p>
       </motion.div>
     </section>
