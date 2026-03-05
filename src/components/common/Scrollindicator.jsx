@@ -5,22 +5,26 @@ const ScrollIndicator = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    // Target your scroll container from App.jsx
+    const scrollContainer = document.querySelector('.scroll-smooth');
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
       {
-        threshold: 0.5,
+        root: scrollContainer || null, // Use custom scroll container if found
+        threshold: 1.0, // Fully in view before showing
       }
     );
 
-    if (ref.current && ref.current.parentElement) {
-      observer.observe(ref.current.parentElement);
+    if (ref.current) {
+      observer.observe(ref.current);
     }
 
     return () => {
-      if (ref.current && ref.current.parentElement) {
-        observer.unobserve(ref.current.parentElement);
+      if (ref.current) {
+        observer.unobserve(ref.current);
       }
     };
   }, []);
